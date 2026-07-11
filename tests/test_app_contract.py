@@ -106,7 +106,7 @@ class CalculationApiContractTest(unittest.TestCase):
             os.environ,
             {
                 "WESTERN_CALC_SOURCE_CODE_URL": (
-                    "https://github.com/example/zodyak-western-calculation-api"
+                    "https://github.com/progresifastroloji/zodyak-western-calculation-api"
                 )
             },
         ):
@@ -118,7 +118,7 @@ class CalculationApiContractTest(unittest.TestCase):
         self.assertTrue(source["source_code_url_configured"])
         self.assertEqual(
             source["source_code_url"],
-            "https://github.com/example/zodyak-western-calculation-api",
+            "https://github.com/progresifastroloji/zodyak-western-calculation-api",
         )
         self.assertIn("source_code_url", source["message"])
 

@@ -114,7 +114,7 @@ For a public AGPL deployment, set the source URL to the exact public repository
 or archive for the running version:
 
 ```bash
-export WESTERN_CALC_SOURCE_CODE_URL="https://github.com/.../zodyak-western-calculation-api"
+export WESTERN_CALC_SOURCE_CODE_URL="https://github.com/progresifastroloji/zodyak-western-calculation-api"
 ```
 
 If this value is not set, `/source` reports that the public source URL is not
@@ -131,7 +131,7 @@ Docker:
 ```bash
 docker build -t zodyak-western-calculation-api .
 docker run -p 5010:5010 \
-  -e WESTERN_CALC_SOURCE_CODE_URL="https://github.com/.../zodyak-western-calculation-api" \
+  -e WESTERN_CALC_SOURCE_CODE_URL="https://github.com/progresifastroloji/zodyak-western-calculation-api" \
   zodyak-western-calculation-api
 ```
 
