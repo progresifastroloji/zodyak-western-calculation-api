@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir .
 
 EXPOSE 5010
 
-CMD ["sh", "-c", "gunicorn zodyak_western_calculation_api.app:app --bind 0.0.0.0:${PORT:-5010}"]
+CMD ["python", "-m", "zodyak_western_calculation_api.serve"]
