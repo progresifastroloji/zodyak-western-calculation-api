@@ -1,0 +1,25 @@
+{
+  "person": {
+    "id": "reference",
+    "name": "Reference"
+  },
+  "birth": {
+    "year": 2000,
+    "month": 1,
+    "day": 1,
+    "hour": 12,
+    "minute": 0,
+    "second": 0,
+    "timezone_id": "UTC",
+    "lat": 51.4779,
+    "lon": 0.0,
+    "place": "Greenwich",
+    "time_confidence": "high"
+  },
+  "options": {
+    "zodiac": "tropical",
+    "house_system": "placidus",
+    "node_type": "true",
+    "orb_profile": "modern_standard_v1"
+  }
+}

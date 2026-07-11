@@ -1,0 +1,42 @@
+{
+  "person_a": {
+    "id": "reference-a",
+    "name": "Reference A",
+    "birth": {
+      "year": 2000,
+      "month": 1,
+      "day": 1,
+      "hour": 12,
+      "minute": 0,
+      "second": 0,
+      "timezone_id": "UTC",
+      "lat": 51.4779,
+      "lon": 0.0,
+      "place": "Greenwich",
+      "time_confidence": "high"
+    }
+  },
+  "person_b": {
+    "id": "reference-b",
+    "name": "Reference B",
+    "birth": {
+      "year": 2001,
+      "month": 2,
+      "day": 3,
+      "hour": 6,
+      "minute": 30,
+      "second": 0,
+      "timezone_id": "UTC",
+      "lat": 40.7128,
+      "lon": -74.006,
+      "place": "New York",
+      "time_confidence": "high"
+    }
+  },
+  "options": {
+    "zodiac": "tropical",
+    "house_system": "placidus",
+    "node_type": "true",
+    "orb_profile": "modern_standard_v1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "electional": {
+    "purpose": "contract",
+    "window_start": "2026-07-01T00:00:00Z",
+    "window_end": "2026-07-01T02:00:00Z",
+    "step_minutes": 60,
+    "top_n": 2,
+    "location": {
+      "lat": 41.0082,
+      "lon": 28.9784,
+      "timezone_id": "Europe/Istanbul",
+      "place": "Istanbul"
+    }
+  },
+  "options": {
+    "zodiac": "tropical",
+    "house_system": "placidus",
+    "node_type": "true",
+    "orb_profile": "modern_standard_v1"
+  }
+}

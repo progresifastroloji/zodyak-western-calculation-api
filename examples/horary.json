@@ -1,0 +1,23 @@
+{
+  "person": {
+    "id": "reference",
+    "name": "Reference"
+  },
+  "horary": {
+    "question": "Bu ortaklık ilerler mi?",
+    "category": "marriage",
+    "question_datetime_utc": "2026-06-25T12:00:00Z",
+    "location": {
+      "lat": 41.0082,
+      "lon": 28.9784,
+      "timezone_id": "Europe/Istanbul",
+      "place": "Istanbul"
+    }
+  },
+  "options": {
+    "zodiac": "tropical",
+    "house_system": "regiomontanus",
+    "node_type": "true",
+    "orb_profile": "modern_standard_v1"
+  }
+}

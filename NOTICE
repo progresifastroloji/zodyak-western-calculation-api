@@ -1,0 +1,19 @@
+Zodyak Western Calculation API
+
+This service is prepared as an AGPL-3.0-or-later open-source calculation
+service.
+
+Swiss Ephemeris notice:
+
+This project is intended to use Swiss Ephemeris / pyswisseph for astronomical
+and astrological calculations. Swiss Ephemeris is authored by Dieter Koch and
+Alois Treindl and distributed by Astrodienst AG under a dual license model:
+AGPL or Swiss Ephemeris Professional License.
+
+Official Swiss Ephemeris information:
+
+- https://www.astro.com/swisseph/swephinfo_e.htm
+- https://www.astro.com/swisseph/swephprg.htm
+
+Do not use the names of Swiss Ephemeris authors or Astrodienst for promotion
+unless you have explicit written permission.
