@@ -21,6 +21,24 @@ class ReadinessCheckTest(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertEqual(result["failures"][0]["code"], "missing_source_url")
 
+    @patch.dict(
+        "os.environ",
+        {
+            "WESTERN_CALC_SOURCE_CODE_URL": (
+                "https://github.com/progresifastroloji/zodyak-western-calculation-api"
+            )
+        },
+        clear=True,
+    )
+    def test_public_readiness_requires_exact_source_version(self):
+        result = check_public_readiness(require_source_url=True)
+
+        self.assertFalse(result["ok"])
+        self.assertEqual(
+            result["failures"][0]["code"],
+            "missing_exact_source_version",
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

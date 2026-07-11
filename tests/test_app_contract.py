@@ -70,7 +70,7 @@ class CalculationApiContractTest(unittest.TestCase):
         data = response.get_json()
         self.assertTrue(data["ok"])
         self.assertEqual(data["engine"], "zodyak-western-calculation-api")
-        self.assertEqual(data["license"]["service_license"], "AGPL-3.0-or-later")
+        self.assertEqual(data["license"]["service_license"], "AGPL-3.0-only")
         self.assertEqual(data["license"]["ephemeris_license_mode"], "agpl")
 
     def test_license_endpoint_names_boundary(self):
@@ -97,6 +97,11 @@ class CalculationApiContractTest(unittest.TestCase):
         self.assertFalse(source["source_code_url_configured"])
         self.assertEqual(source["source_code_url"], "")
         self.assertEqual(source["source_code_url_env"], "WESTERN_CALC_SOURCE_CODE_URL")
+        self.assertFalse(source["exact_source_configured"])
+        self.assertEqual(source["source_commit"], "")
+        self.assertEqual(source["source_commit_env"], "WESTERN_CALC_SOURCE_COMMIT")
+        self.assertEqual(source["release_tag"], "")
+        self.assertEqual(source["release_tag_env"], "WESTERN_CALC_RELEASE_TAG")
         self.assertEqual(source["service_license_file"], "LICENSE")
         self.assertEqual(source["notice_file"], "NOTICE")
         self.assertIn("WESTERN_CALC_SOURCE_CODE_URL", source["message"])
@@ -107,7 +112,12 @@ class CalculationApiContractTest(unittest.TestCase):
             {
                 "WESTERN_CALC_SOURCE_CODE_URL": (
                     "https://github.com/progresifastroloji/zodyak-western-calculation-api"
-                )
+                ),
+                "WESTERN_CALC_SOURCE_COMMIT": "abc123",
+                "WESTERN_CALC_SOURCE_ARCHIVE_URL": (
+                    "https://github.com/progresifastroloji/"
+                    "zodyak-western-calculation-api/archive/abc123.zip"
+                ),
             },
         ):
             response = self.client.get("/source")
@@ -120,7 +130,10 @@ class CalculationApiContractTest(unittest.TestCase):
             source["source_code_url"],
             "https://github.com/progresifastroloji/zodyak-western-calculation-api",
         )
-        self.assertIn("source_code_url", source["message"])
+        self.assertTrue(source["exact_source_configured"])
+        self.assertEqual(source["source_commit"], "abc123")
+        self.assertTrue(source["source_archive_url_configured"])
+        self.assertIn("running service version", source["message"])
 
     def test_schema_endpoint_lists_reserved_calculation_contract(self):
         response = self.client.get("/schema")

@@ -3,7 +3,7 @@ name = "zodyak-western-calculation-api"
 version = "0.1.0"
 description = "AGPL Western astrology technical calculation API."
 requires-python = ">=3.11"
-license = "AGPL-3.0-or-later"
+license = "AGPL-3.0-only"
 dependencies = [
   "Flask>=3,<4",
   "gunicorn>=21,<24",

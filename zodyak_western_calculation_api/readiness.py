@@ -71,6 +71,16 @@ def check_public_readiness(require_source_url: bool = False) -> dict[str, Any]:
                 ),
             }
         )
+    elif require_source_url and not source.get("exact_source_configured"):
+        failures.append(
+            {
+                "code": "missing_exact_source_version",
+                "message": (
+                    "WESTERN_CALC_SOURCE_COMMIT or WESTERN_CALC_RELEASE_TAG "
+                    "must identify the exact source version for the running service."
+                ),
+            }
+        )
     elif not source.get("source_code_url_configured"):
         warnings.append(
             {

@@ -105,21 +105,44 @@ from .western_rectification import (
 
 ENGINE_NAME = "zodyak-western-calculation-api"
 ENGINE_VERSION = "0.1.0"
-SERVICE_LICENSE = "AGPL-3.0-or-later"
+SERVICE_LICENSE = "AGPL-3.0-only"
 EPHEMERIS_NAME = "Swiss Ephemeris"
 
 
 def source_payload() -> dict[str, Any]:
     source_code_url = os.environ.get("WESTERN_CALC_SOURCE_CODE_URL", "").strip()
+    source_commit = os.environ.get("WESTERN_CALC_SOURCE_COMMIT", "").strip()
+    release_tag = os.environ.get("WESTERN_CALC_RELEASE_TAG", "").strip()
+    source_archive_url = os.environ.get("WESTERN_CALC_SOURCE_ARCHIVE_URL", "").strip()
+    build_date = os.environ.get("WESTERN_CALC_BUILD_DATE", "").strip()
+    exact_source_configured = bool(source_code_url and (source_commit or release_tag))
     return {
         "source_code_url": source_code_url,
         "source_code_url_configured": bool(source_code_url),
         "source_code_url_env": "WESTERN_CALC_SOURCE_CODE_URL",
+        "source_commit": source_commit,
+        "source_commit_configured": bool(source_commit),
+        "source_commit_env": "WESTERN_CALC_SOURCE_COMMIT",
+        "release_tag": release_tag,
+        "release_tag_configured": bool(release_tag),
+        "release_tag_env": "WESTERN_CALC_RELEASE_TAG",
+        "source_archive_url": source_archive_url,
+        "source_archive_url_configured": bool(source_archive_url),
+        "source_archive_url_env": "WESTERN_CALC_SOURCE_ARCHIVE_URL",
+        "build_date": build_date,
+        "build_date_configured": bool(build_date),
+        "build_date_env": "WESTERN_CALC_BUILD_DATE",
+        "exact_source_configured": exact_source_configured,
         "service_license_file": "LICENSE",
         "notice_file": "NOTICE",
         "agpl_network_source_obligation": True,
         "message": (
-            "Corresponding source code is available at source_code_url."
+            "Corresponding source code is tied to the running service version."
+            if exact_source_configured
+            else (
+                "Set WESTERN_CALC_SOURCE_COMMIT or WESTERN_CALC_RELEASE_TAG "
+                "to identify the exact corresponding source for this deployment."
+            )
             if source_code_url
             else (
                 "Set WESTERN_CALC_SOURCE_CODE_URL before public deployment "

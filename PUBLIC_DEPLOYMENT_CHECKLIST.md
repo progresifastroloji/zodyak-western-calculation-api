@@ -5,7 +5,9 @@ Use this checklist before exposing the calculation service to public users.
 ## Required
 
 - Publish the complete corresponding source code for the exact running version.
-- Set `WESTERN_CALC_SOURCE_CODE_URL` to that public repository or source archive.
+- Set `WESTERN_CALC_SOURCE_CODE_URL` to the exact commit, tag, or source archive
+  for the running version.
+- Set `WESTERN_CALC_SOURCE_COMMIT` or `WESTERN_CALC_RELEASE_TAG`.
 - Keep `LICENSE` and `NOTICE` in the published source.
 - Before final publication, replace or expand `LICENSE` with the canonical full
   AGPL-3.0 license text from the Free Software Foundation if your hosting or
@@ -32,11 +34,14 @@ The `/source` response should show:
 
 - `source_code_url_configured: true`
 - `source_code_url` pointing to the public source for the deployed version
+- `exact_source_configured: true`
+- `source_commit` or `release_tag` identifying the running version
 - `agpl_network_source_obligation: true`
 
 ## Do Not Publish If
 
 - `source_code_url_configured` is false.
+- `exact_source_configured` is false.
 - The source URL points to a placeholder, private repository, or different code
   version.
 - Closed app code, vault content, prompts, or commercial packaging files have
