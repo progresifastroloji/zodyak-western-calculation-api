@@ -11,10 +11,15 @@ def _bind_address() -> str:
 
 
 def main() -> None:
-    from gunicorn.app.wsgiapp import run
-
-    os.environ.setdefault("GUNICORN_CMD_ARGS", f"--bind {_bind_address()}")
-    run(["gunicorn", "zodyak_western_calculation_api.app:app"])
+    os.execvp(
+        "gunicorn",
+        [
+            "gunicorn",
+            "--bind",
+            _bind_address(),
+            "zodyak_western_calculation_api.app:app",
+        ],
+    )
 
 
 if __name__ == "__main__":
